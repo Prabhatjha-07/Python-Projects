@@ -36,7 +36,8 @@ def menu():
         print("3. Highest Scorer")
         print("4. Lowest Scorer")
         print("5. Subject Wise Highest Scorer")
-        print("6. Exit")
+        print("6. Print Average Marks ")
+        print("7. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -56,6 +57,9 @@ def menu():
             sub_high()
         
         elif choice == "6":
+            average()
+            
+        elif choice == "7":
             break
 
         else:
@@ -163,5 +167,14 @@ def sub_high():
         
     else:
         print("Not valid subject")
-    
+        
+def average():
+    total = 0 
+    if students:
+        for student in students:
+            total += student["Total_Marks"]
+        average = total / len(students)
+        print("Average Marks" , average)
+    else:
+        print("No students record found")
 menu()  
